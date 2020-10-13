@@ -3,13 +3,15 @@ package qyapi
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/cloverzrg/wechat-work-message-push-go/logger"
 	"io/ioutil"
 	"net/http"
 	"os"
+
+	"github.com/cloverzrg/wechat-work-message-push-go/logger"
 )
 
-func postJson(url string, jsonStr []byte) (body []byte, err error) {
+// postJson 用于发送HTTP请求到企业微信接口
+func postJSON(url string, jsonStr []byte) (body []byte, err error) {
 
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
 	req.Header.Set("Content-Type", "application/json")

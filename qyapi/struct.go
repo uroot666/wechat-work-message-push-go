@@ -1,5 +1,6 @@
 package qyapi
 
+// TextMessage 普通文本消息体
 type TextMessage struct {
 	Touser  string `json:"touser"`
 	Msgtype string `json:"msgtype"`
@@ -7,15 +8,4 @@ type TextMessage struct {
 	Text    struct {
 		Content string `json:"content"`
 	} `json:"text"`
-}
-
-type TextCardMessage struct {
-	Touser   string `json:"touser"`
-	Msgtype  string `json:"msgtype"`
-	Agentid  string `json:"agentid"`
-	TextCard struct {
-		Title       string `json:"title"`
-		Description string `json:"description"`
-		URL         string `json:"url"`
-	} `json:"textcard"`
 }

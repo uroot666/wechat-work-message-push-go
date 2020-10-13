@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// GrafaneHandler 回调函数
 func GrafaneHandler(c *gin.Context) {
 	noti := grafana.Notification{}
 	err := c.BindJSON(&noti)
@@ -13,7 +14,7 @@ func GrafaneHandler(c *gin.Context) {
 		c.String(500, err.Error())
 		return
 	}
-	err = qyapi.SendCardMessage(noti.Message, noti.Title, noti.ImageUrl, "")
+	err = qyapi.SendTextGrafanaMessage(noti)
 	if err != nil {
 		c.String(500, err.Error())
 		return

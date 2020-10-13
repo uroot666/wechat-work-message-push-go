@@ -2,12 +2,13 @@ package qyapi
 
 import (
 	"encoding/json"
-	"github.com/cloverzrg/wechat-work-message-push-go/config"
-	"github.com/cloverzrg/wechat-work-message-push-go/logger"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/cloverzrg/wechat-work-message-push-go/config"
+	"github.com/cloverzrg/wechat-work-message-push-go/logger"
 )
 
 type tokenSer struct {
@@ -17,11 +18,12 @@ type tokenSer struct {
 
 var token tokenSer
 
+// GetToken 获取企业微信token
 func GetToken() (tokenStr string, err error) {
 	if !token.ExpiredAt.IsZero() && time.Now().Before(token.ExpiredAt) {
 		return token.Token, err
 	}
-	url := "https://qyapi.weixin.qq.com/cgi-bin/gettoken?" + "corpid=" + config.Config.WechatWork.CorpId + "&corpsecret=" + config.Config.WechatWork.CorpSecret
+	url := "https://qyapi.weixin.qq.com/cgi-bin/gettoken?" + "corpid=" + config.Config.WechatWork.CorpID + "&corpsecret=" + config.Config.WechatWork.CorpSecret
 
 	resp, err := http.Get(url)
 	if err != nil {

@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/cloverzrg/wechat-work-message-push-go/api"
 	"github.com/cloverzrg/wechat-work-message-push-go/config"
 	"github.com/cloverzrg/wechat-work-message-push-go/logger"
-	"os"
 )
 
 var (

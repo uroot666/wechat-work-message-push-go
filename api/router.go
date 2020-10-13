@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// SetRoute 创建映射规则
 func SetRoute(r *gin.Engine) {
 	r.GET("/", controller.Index)
 	r.POST("/push", middleware.TokenMiddleware, controller.Push)

@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Push /push 回调
 func Push(c *gin.Context) {
 
 	msg := c.PostForm("message")
